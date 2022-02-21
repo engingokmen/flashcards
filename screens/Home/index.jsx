@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TouchableWithoutFeedback, StyleSheet, View } from 'react-native';
 import { Layout, Input, Divider, Button, Icon } from '@ui-kitten/components';
+import { SetList } from '../../components/SetList'
 
 export const Home = () => {
   const [value, setValue] = useState('');
@@ -35,6 +36,8 @@ export const Home = () => {
         <Button style={styles.button} accessoryLeft={IconFilter} />
       </View>
       <Divider />
+
+      <SetList />
     </Layout>
   )
 }
