@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button, Icon, List, ListItem, Layout} from '@ui-kitten/components';
-import { StyleSheet } from 'react-native';
+import { Button, Icon, Layout, Text } from '@ui-kitten/components';
+import { StyleSheet, View, ScrollView } from 'react-native';
+import { SetListItem } from './SetListItem'
 
 const data = new Array(8).fill({
   title: 'Set item',
@@ -9,44 +10,44 @@ const data = new Array(8).fill({
 
 export const SetList = () => {
 
-  const iconItem = (props) => (
-    <Icon {...props} name={props.name}/>
-  );
-  
+  const arrayList = []
 
-  const actionItems = () => {
-    return(
-      <>
-        <Button accessoryLeft={iconItem({name: 'flash'})} size='tiny'>Quiz</Button>
-        <Button accessoryLeft={iconItem({name: 'more-vertical'})} style={{marginLeft: 10}} size='tiny'></Button>
-      </>
-    )
+  for (let i = 0; i < data.length; i++){
+    arrayList.push(
+      <SetListItem title={data[0].title} description={data[0].description} style={styles.setListItem} key={`list_${i}`} />
+    );
   }
-  
-  const setItem = ({ item, index }) => (
-    <ListItem
-      title={`${item.title} ${index + 1}`}
-      description={`${item.description} ${index + 1}`}
-      accessoryRight={actionItems}
-    />
-  );
 
   return (
     <>
-      <List
-        style={styles.setList}
-        data={data}
-        renderItem={setItem}
-      />
+      <Layout style={styles.container}>
+        <ScrollView>
+          {arrayList}
+        </ScrollView>
+      </Layout>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  setList: {
+  container: {
     minHeight: '100%'
   },
-  setListMenu: {
-    minHeight: 144,
+  setListItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10
+    // borderRadius: 5,
+    // borderWidth: 1,
+    // borderColor: '#cccccc'
+  },
+  setListItemTitle: {
+    fontSize: 16
+  },
+  setListItemDescription: {
+    fontSize: 14
+  },
+  listButtons: {
+    flexDirection: 'row', 
   }
 });
