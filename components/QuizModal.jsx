@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon, Layout, Text, MenuItem, OverflowMenu, Modal, Card } from '@ui-kitten/components';
+import { Button, Icon, Text, Modal, Card } from '@ui-kitten/components';
 import { StyleSheet, View } from 'react-native';
 
 const iconItem = (props) => (
