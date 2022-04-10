@@ -8,13 +8,13 @@ const data = new Array(8).fill({
   description: 'Description for Set',
 });
 
-export const SetList = () => {
+export const SetList = ({navigation}) => {
 
   const arrayList = []
 
   for (let i = 0; i < data.length; i++){
     arrayList.push(
-      <SetListItem title={data[0].title} description={data[0].description} style={styles.setListItem} key={`list_${i}`} />
+      <SetListItem navigation={navigation} title={data[0].title} description={data[0].description} style={styles.setListItem} key={`list_${i}`} />
     );
   }
 

@@ -9,7 +9,7 @@ const iconItem = (props) => (
 
 
 export const SetListItem = (props) => {
-  const { title, description } = props
+  const { title, description, navigation } = props
 
   const [selectedIndex, setSelectedIndex] = React.useState(null);
   const [visible, setVisible] = React.useState(false);
@@ -48,19 +48,7 @@ export const SetListItem = (props) => {
           <MenuItem title='Set Card'/>
         </OverflowMenu>
       </View>
-      <QuizModal modalClose={modalClose} visible={visibleModal} />
-      {/* <Modal
-        visible={visibleModal}
-        backdropStyle={styles.backdrop}
-        onBackdropPress={() => setVisibleModal(false)}>
-        <Card style={styles.modalCard} disabled={true}>
-          <View style={styles.modalHeader}>
-            <Text>Quiz</Text>
-            <Button style={styles.modalCloseButton} onPress={() => setVisibleModal(false)} accessoryLeft={iconItem({name: 'close'})} size="tiny" />
-          </View>
-          
-        </Card>
-      </Modal> */}
+      <QuizModal navigation={navigation} modalClose={modalClose} visible={visibleModal} />
     </Layout>
   );
 };

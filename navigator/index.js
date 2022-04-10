@@ -2,11 +2,9 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomTabBar } from '../components/BottomTab'
-import { Home, CreateSet, AllCards } from '../screens'
+import { Home, CreateSet, AllCards, FlashCard, MultipleChoice } from '../screens'
 
 const { Navigator, Screen } = createBottomTabNavigator();
-
-console.log('')
 
 const deneme = "";
 
@@ -16,6 +14,8 @@ const TabNavigator = () => (
     <Screen name='Home' component={Home}/>
     <Screen name='CreateSet' component={CreateSet}/>
     <Screen name='AllCards' component={AllCards}/>
+    <Screen name='FlashCard' component={FlashCard}/>
+    <Screen name='MultipleChoice' component={MultipleChoice}/>
   </Navigator>
 );
 

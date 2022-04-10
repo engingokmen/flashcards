@@ -6,8 +6,11 @@ const iconItem = (props) => (
   <Icon {...props} name={props.name}/>
 );
 
-
-export const QuizModal = ({visible, modalClose}) => {
+export const QuizModal = ({visible, modalClose, navigation}) => {
+  const pressQuiz = (type) => {
+    navigation.navigate(type)
+    modalClose()
+  }
   return(
     <Modal
       visible={visible}
@@ -20,8 +23,8 @@ export const QuizModal = ({visible, modalClose}) => {
           <Button style={styles.modalCloseButton} onPress={modalClose} accessoryLeft={iconItem({name: 'close'})} size="tiny" />
         </View>
         <View>
-          <Button style={styles.modalButton} accessoryLeft={iconItem({name: 'sync-outline'})} size="medium">Classic Flashcard</Button>
-          <Button style={styles.modalButton} accessoryLeft={iconItem({name: 'checkmark-circle-2-outline'})} size="medium">Multiple Choice</Button>
+          <Button onPress={() => pressQuiz('FlashCard')} style={styles.modalButton} accessoryLeft={iconItem({name: 'sync-outline'})} size="medium">Classic Flashcard</Button>
+          <Button onPress={() => pressQuiz('MultipleChoice')} style={styles.modalButton} accessoryLeft={iconItem({name: 'checkmark-circle-2-outline'})} size="medium">Multiple Choice</Button>
         </View>
       </Card>
     </Modal>

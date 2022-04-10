@@ -3,7 +3,7 @@ import { TouchableWithoutFeedback, StyleSheet, View } from 'react-native';
 import { Layout, Input, Divider, Button, Icon } from '@ui-kitten/components';
 import { SetList } from '../../components/SetList'
 
-export const Home = () => {
+export const Home = ({navigation}) => {
   const [value, setValue] = useState('');
 
   const IconList = (props) => (
@@ -37,7 +37,7 @@ export const Home = () => {
       </View>
       <Divider />
 
-      <SetList />
+      <SetList navigation={navigation} />
     </Layout>
   )
 }
